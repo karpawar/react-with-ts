@@ -1,9 +1,8 @@
-import { PROPERTY_TYPES } from "@babel/types";
 import React, { useRef } from "react";
 
 type NewTodoProps = {
-    onAddTodo: (todoText: string) => void;
-}
+  onAddTodo: (todoText: string) => void;
+};
 
 const NewTodo: React.FC<NewTodoProps> = (props) => {
   const inputRef = useRef<HTMLInputElement>(null);
