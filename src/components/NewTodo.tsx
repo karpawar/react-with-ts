@@ -1,6 +1,11 @@
+import { PROPERTY_TYPES } from "@babel/types";
 import React, { useRef } from "react";
 
-const NewTodo: React.FC = () => {
+type NewTodoProps = {
+    onAddTodo: (todoText: string) => void;
+}
+
+const NewTodo: React.FC<NewTodoProps> = (props) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const todoSubmitHandler = (event: React.FormEvent) => {
@@ -8,6 +13,7 @@ const NewTodo: React.FC = () => {
     //if any other validations
     const enteredText = inputRef.current!.value;
     console.log(enteredText);
+    props.onAddTodo(enteredText);
   };
 
   return (
